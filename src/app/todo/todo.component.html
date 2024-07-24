@@ -9,55 +9,41 @@
 </div>
 <div class="main">
   <h2>Bonjour, <span>Mr diallo</span>, Commencez à planifier aujourd'hui</h2>
-      <div class="tasks">
-          <div class="task-header">
-              <button>Ajouter une tâche</button>
-          </div>
-          <div class="card-position">
-              <div class="task-list">
-                  <div class="card">
-                      <h2>Apprendre Javascript</h2>
-                      <p>Maîtrisez le langage qui propulse le web moderne.</p>
-                      <p class="start-date">Date de début : 01-01-2023</p>
-                          <i class="fas fa-check-circle "></i>
-                          <i class="fas fa-edit "></i>
-                          <i class="fas fa-trash-alt"></i>
-                  </div>
-              </div>
-              <div class="task-list">
-                  <div class="card">
-                      <h2>Apprendre HTML & CSS</h2>
-                      <p>Concevez et stylisez des pages web modernes.</p>
-                      <p class="start-date">Date de début : 02-02-2023</p>
-                          <i class="fas fa-check-circle"></i>
-                          <i class="fas fa-edit"></i>
-                          <i class="fas fa-trash-alt"></i>
-                  </div>
-              </div>
-              <div class="task-list">
-                  <div class="card">
-                      <h2>Apprendre React</h2>
-                      <p>Créez des interfaces utilisateur interactives.</p>
-                      <p class="start-date">Date de début : 03-03-2023</p>
-                          <i class="fas fa-check-circle"></i>
-                          <i class="fas fa-edit"></i>
-                          <i class="fas fa-trash-alt"></i>
-                  </div>
-              </div>
-              <div class="task-list">
-                  <div class="card">
-                      <h2>Apprendre Angulare</h2>
-                      <p>Créez des interfaces utilisateur interactives.</p>
-                      <p class="start-date">Date de début : 03-03-2023</p>
-                          <i class="fas fa-check-circle"></i>
-                          <i class="fas fa-edit"></i>
-                          <i class="fas fa-trash-alt"></i>
-                  </div>
-              </div>
-              <!-- Ajoutez plus de tâches ici -->
-          </div>
-          <button class="load-more">Charger plus</button>
+  <div class="tasks">
+    <div class="task-header">
+      <button (click)="toggleForm()">Ajouter une tâche</button>
+    </div>
+
+    <div *ngIf="showForm" class="task-form">
+      <h3>Nouvelle tâche</h3>
+      <form (ngSubmit)="addTask()">
+        <div class="form-group">
+          <label for="title">Titre</label>
+          <input type="text" id="title" [(ngModel)]="newTask.title" name="title" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea id="description" [(ngModel)]="newTask.description" name="description" class="form-control" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="startDate">Date de début</label>
+          <input type="date" id="startDate" [(ngModel)]="newTask.startDate" name="startDate" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Ajouter</button>
+      </form>
+    </div>
+    <div class="task-list">
+      <div *ngFor="let task of tasks" class="card" [class.completed]="task.completed">
+        <h2>{{ task.title }}</h2>
+        <p>{{ task.description }}</p>
+        <p class="start-date">Date de début : {{ task.startDate }}</p>
+        <i class="fas fa-check-circle" (click)="markAsCompleted(task)"></i>
+        <i class="fas fa-edit"></i>
+        <i class="fas fa-trash-alt" (click)="deleteTask(task)"></i>
       </div>
+    </div>
+  </div>
+
 </div>
 <div class="footer">
   <div class="stats">
