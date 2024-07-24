@@ -173,8 +173,8 @@ body {
 }
 
 .task-list .card {
-  margin: 10px 0;
-  padding: 20px;
+  margin: 10px 0 !important;
+  padding: 20px !important;
   border: 1px solid #ccc;
   border-radius: 5px;
 }

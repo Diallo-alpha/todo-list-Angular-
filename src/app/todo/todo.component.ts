@@ -22,6 +22,18 @@ export class TodoComponent {
       description: 'Maîtrisez le framwork qui propulse le web moderne.',
       startDate: '01-08-2024',
       completed: false
+    },
+    {
+      title: 'Apprendre PHP',
+      description: 'Maîtrisez le developpemet backend avec ce magnifique language.',
+      startDate: '01-08-2024',
+      completed: true
+    },
+    {
+      title: 'Apprendre Laravel',
+      description: 'Maîtrisez le framwork qui propulse php full le web moderne.',
+      startDate: '01-08-2024',
+      completed: false
     }
   ];
   newTask = { title: '', description: '', startDate: '', completed: false };
