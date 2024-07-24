@@ -85,23 +85,17 @@ body {
   border-radius: 50%;
 }
 .tasks {
-  width: 65%;
+  width: 85%;
+  margin: auto;
 }
 
 .tasks .task-header {
   display: flex;
+  text-align: center;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
 }
-
-.tasks .task-header input {
-  padding: 10px;
-  border: 1px solid #F0F0F0;
-  border-radius: 5px;
-  width: 45%;
-}
-
 .tasks .task-header button {
   padding: 10px 20px;
   background-color: #FF6F61;
@@ -109,18 +103,21 @@ body {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  margin: auto;
+
 }
 
 .card-position {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   flex-wrap: wrap;
   gap: 20px;
 }
 
 .task-list {
   display: flex;
-  flex: 1 1 30%; /* Chaque carte prendra 30% de la largeur du conteneur */
-  max-width: 30%;
+  flex: 100%; /* Chaque carte prendra 30% de la largeur du conteneur */
+  max-width: 100%;
   box-sizing: border-box;
 }
 
